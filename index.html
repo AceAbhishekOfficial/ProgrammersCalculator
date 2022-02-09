@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Programmers Calci</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Work+Sans">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/Navigation-with-Button.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/untitled.css">
+
+</head>
+
+<body onkeypress="KeyPress(event)"
+    style="background: url(&quot;assets/img/bk%20(2).jpg&quot;) center / cover no-repeat fixed;">
+    <script src="assets/js/CPU.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <nav class="navbar navbar-light navbar-expand-md navigation-clean-button"
+        style="box-shadow: 0px 3px 20px rgba(255,0,107,0.2);background: rgba(255,255,255,0.3);">
+        <div class="container"><a class="navbar-brand" href="#" style="color: rgb(255,255,255);">Programmer's
+                Calculator</a><button onclick="press()" data-toggle="collapse" class="navbar-toggler"
+                data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span
+                    class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav mr-auto"></ul><span class="navbar-text actions"> <a
+                        class="btn btn-light action-button" role="button" href="about/index.html"
+                        style="background: var(--pink);">About</a></span>
+            </div>
+        </div>
+    </nav>
+    <section>
+        <section id="fucksec" style="filter: grayscale(0%) hue-rotate(0deg);">
+            <section class="calciBody">
+                <div class="container" style="text-align: right;padding-right: 0px;"><input oninput="setCol()"
+                        style="color: rgba(164,60,128,0.76);" type="range" min="1" max="360" value="0" class="slider"
+                        id="setCol"><button onclick="Refresh()" class="btn btn-light" type="button"
+                        style="border-radius: 0px;background: rgba(164,60,128,0.76);border-width: 0px;padding-right: 0px;padding-left: 0px;width: 60px;"><i
+                            class="fa fa-refresh"></i>
+                    </button></div>
+                <div class="container" style="padding-right: 0px;padding-left: 0px;">
+                    <h1 id="equation" class="text-break"
+                        style="text-align: right;padding-bottom: 40px;color: rgb(255,255,255);margin-top: 10px;">
+                        0</h1>
+                    <h1 id="answer" class="text-break"
+                        style="text-align: right;padding-bottom: 5px;color: rgb(255,255,255);">
+                        0</h1>
+
+                </div>
+                <div class="container" style="padding-right: 0px;padding-left: 0px;">
+                    <h4 id="hex" class="text-break"
+                        style="margin-bottom: 0px;padding-top: 0px;margin-left: 0.5%;color: rgb(255,255,255);font-size: 15px;margin-top: 2px;width: 100%;">
+                        HEX&nbsp; &nbsp;</h4>
+                    <h4 id="dec" class="text-break"
+                        style="margin-bottom: 0px;padding-top: 0px;margin-left: 0.5%;color: rgb(255,255,255);font-size: 15px;margin-top: 2px;">
+                        DEC</h4>
+                    <h4 id="oct" class="text-break"
+                        style="margin-bottom: 0px;padding-top: 0px;margin-left: 0.5%;color: rgb(255,255,255);font-size: 15px;margin-top: 2px;">
+                        OCT</h4>
+                    <h4 id="bin" class="text-break"
+                        style="margin-bottom: 0px;padding-top: 0px;margin-left: 0.5%;color: rgb(255,255,255);font-size: 15px;margin-top: 2px;">
+                        BIN</h4>
+                </div>
+                <section id="keypad" style="margin-top: 10px;padding-right: 1.5%;padding-left: 1.5%;">
+                    <button id="btn_base" onclick="Cbase()" class="btn btn-light" type="button"
+                        style="width: 16.2%;height: 60px;font-size: 24px;border-radius: 0px;margin: 0.2%;background: rgba(126,31,75,0.31);border-width: 0px;">DEC
+
+                    </button><button onclick="press('WORD')" class="btn btn-light" type="button" id="btn_word">QWORD
+                    </button><button onclick="togBoard()" class="btn btn-light" type="button"
+                        style="width: 16.2%;height: 60px;font-size: 20px;border-radius: 0px;margin: 0.2%;background: rgba(126,31,75,0.31);border-width: 0px;"><i
+                            class="fa fa-building-o" style="font-size: 30px;"></i><br>
+                    </button><button onclick="notMode()" class="btn btn-light" type="button"
+                        style="width: 16.2%;height: 60px;font-size: 20px;border-radius: 0px;margin: 0.2%;background: rgba(126,31,75,0.31);border-width: 0px;"><i
+                            class="fa fa-arrow-up" style="font-size: 30px;"></i><br>
+                    </button><button onclick="clearDisp()" class="btn btn-light" type="button"
+                        style="width: 16.2%;height: 60px;font-size: 30px;border-radius: 0px;margin: 0.2%;background: rgba(126,31,75,0.48);border-width: 0px;">C<br>
+                    </button><button onclick="erase()" class="btn btn-light" type="button" id="btn_erase"
+                        style="width: 16.2%;height: 60px;font-size: 30px;border-radius: 0px;margin: 0.2%;background: rgba(126,31,75,0.48);border-width: 0px;filter: blur(0px);">⌫<br>
+                    </button><button onclick="press('<<')" class="btn btn-light" type="button"
+                        style="width: 16.2%;height: 60px;font-size: 30px;border-radius: 0px;margin: 0.2%;background: rgba(126,31,75,0.48);border-width: 0px;">&lt;&lt;
+                    </button><button onclick="press('>>')" class="btn btn-light" type="button"
+                        style="width: 16.2%;height: 60px;font-size: 30px;border-radius: 0px;margin: 0.2%;background: rgba(126,31,75,0.48);border-width: 0px;">&gt;&gt;
+                    </button><button onclick="press('^')" class="btn btn-light" type="button" id="XOR">XOR<br>
+                    </button><button onclick="press('&')" class="btn btn-light" type="button" id="AND">AND<br>
+                    </button><button onclick="press('|')" class="btn btn-light" type="button" id="OR">OR<br>
+                    </button><button onclick="press('/')" class="btn btn-light" type="button"
+                        style="width: 16.2%;height: 60px;font-size: 30px;border-radius: 0px;margin: 0.2%;background: rgba(126,31,75,0.48);border-width: 0px;">÷<br>
+                    </button><button id="btn_A" onclick="press('A')" class="btn btn-light" type="button"
+                        style="width: 16.2%;height: 60px;font-size: 30px;border-radius: 0px;margin: 0.2%;background: rgba(55,0,25,0.48);border-width: 0px;">A<br>
+                    </button><button id="btn_B" onclick="press('B')" class="btn btn-light" type="button"
+                        style="width: 16.2%;height: 60px;font-size: 30px;border-radius: 0px;margin: 0.2%;background: rgba(55,0,25,0.48);border-width: 0px;">B<br>
+                    </button><button id="btn_7" onclick="press(7)" class="btn btn-light" type="button"
+                        style="width: 16.2%;height: 60px;font-size: 30px;border-radius: 0px;margin: 0.2%;background: rgba(55,0,25,0.48);border-width: 0px;">7<br>
+                    </button><button id="btn_8" onclick="press(8)" class="btn btn-light" type="button"
+                        style="width: 16.2%;height: 60px;font-size: 30px;border-radius: 0px;margin: 0.2%;background: rgba(55,0,25,0.48);border-width: 0px;">8<br>
+                    </button><button id="btn_9" onclick="press(9)" class="btn btn-light" type="button"
+                        style="width: 16.2%;height: 60px;font-size: 30px;border-radius: 0px;margin: 0.2%;background: rgba(55,0,25,0.48);border-width: 0px;">9<br>
+                    </button><button onclick="press('x')" class="btn btn-light" type="button"
+                        style="width: 16.2%;height: 60px;font-size: 30px;border-radius: 0px;margin: 0.2%;background: rgba(126,31,75,0.48);border-width: 0px;">x<br>
+                    </button><button id="btn_C" onclick="press('C')" class="btn btn-light" type="button"
+                        style="width: 16.2%;height: 60px;font-size: 30px;border-radius: 0px;margin: 0.2%;background: rgba(55,0,25,0.48);border-width: 0px;">C<br>
+                    </button><button id="btn_D" onclick="press('D')" class="btn btn-light" type="button"
+                        style="width: 16.2%;height: 60px;font-size: 30px;border-radius: 0px;margin: 0.2%;background: rgba(55,0,25,0.48);border-width: 0px;">D<br>
+                    </button><button id="btn_4" onclick="press(4)" class="btn btn-light" type="button"
+                        style="width: 16.2%;height: 60px;font-size: 30px;border-radius: 0px;margin: 0.2%;background: rgba(55,0,25,0.48);border-width: 0px;">4<br>
+                    </button><button id="btn_5" onclick="press(5)" class="btn btn-light" type="button"
+                        style="width: 16.2%;height: 60px;font-size: 30px;border-radius: 0px;margin: 0.2%;background: rgba(55,0,25,0.48);border-width: 0px;">5<br>
+                    </button><button id="btn_6" onclick="press(6)" class="btn btn-light" type="button"
+                        style="width: 16.2%;height: 60px;font-size: 30px;border-radius: 0px;margin: 0.2%;background: rgba(55,0,25,0.48);border-width: 0px;">6<br>
+                    </button><button onclick="press('-')" class="btn btn-light" type="button"
+                        style="width: 16.2%;height: 60px;font-size: 30px;border-radius: 0px;margin: 0.2%;background: rgba(126,31,75,0.48);border-width: 0px;">-<br>
+                    </button><button id="btn_E" onclick="press('E')" class="btn btn-light" type="button"
+                        style="width: 16.2%;height: 60px;font-size: 30px;border-radius: 0px;margin: 0.2%;background: rgba(55,0,25,0.48);border-width: 0px;">E<br>
+                    </button><button id="btn_F" onclick="press('F')" class="btn btn-light" type="button"
+                        style="width: 16.2%;height: 60px;font-size: 30px;border-radius: 0px;margin: 0.2%;background: rgba(55,0,25,0.48);border-width: 0px;">F<br>
+                    </button><button id="btn_1" onclick="press(1)" class="btn btn-light" type="button"
+                        style="width: 16.2%;height: 60px;font-size: 30px;border-radius: 0px;margin: 0.2%;background: rgba(55,0,25,0.48);border-width: 0px;">1<br>
+                    </button><button id="btn_2" onclick="press(2)" class="btn btn-light" type="button"
+                        style="width: 16.2%;height: 60px;font-size: 30px;border-radius: 0px;margin: 0.2%;background: rgba(55,0,25,0.48);border-width: 0px;">2<br>
+                    </button><button id="btn_3" onclick="press(3)" class="btn btn-light" type="button"
+                        style="width: 16.2%;height: 60px;font-size: 30px;border-radius: 0px;margin: 0.2%;background: rgba(55,0,25,0.48);border-width: 0px;">3<br>
+                    </button><button onclick="press('+')" class="btn btn-light" type="button"
+                        style="width: 16.2%;height: 60px;font-size: 30px;border-radius: 0px;margin: 0.2%;background: rgba(126,31,75,0.48);border-width: 0px;">+<br>
+                    </button><button onclick="press('(')" class="btn btn-light" type="button"
+                        style="width: 16.2%;height: 60px;font-size: 30px;border-radius: 0px;margin: 0.2%;background: rgba(126,31,75,0.48);border-width: 0px;">(<br>
+                    </button><button onclick="press(')')" class="btn btn-light" type="button"
+                        style="width: 16.2%;height: 60px;font-size: 30px;border-radius: 0px;margin: 0.2%;background: rgba(126,31,75,0.48);border-width: 0px;">)<br>
+                    </button><button onclick="pm()" class="btn btn-light" type="button"
+                        style="width: 16.2%;height: 60px;font-size: 30px;border-radius: 0px;margin: 0.2%;background: rgba(126,31,75,0.48);border-width: 0px;">±<br>
+                    </button><button onclick="press(0)" class="btn btn-light" type="button"
+                        style="width: 16.2%;height: 60px;font-size: 30px;border-radius: 0px;margin: 0.2%;background: rgba(55,0,25,0.48);border-width: 0px;">0<br>
+                    </button><button onclick="press('~')" class="btn btn-light" type="button"
+                        style="width: 16.2%;height: 60px;font-size: 30px;border-radius: 0px;margin: 0.2%;background: rgba(126,31,75,0.48);border-width: 0px;color: rgb(255, 255, 255);">~<br>
+                    </button><button onclick="submit()" class="btn btn-light" type="button"
+                        style="width: 16.2%;height: 60px;font-size: 30px;border-radius: 0px;margin: 0.2%;background: rgba(126,31,75,0.48);border-width: 0px;">=<br>
+                    </button>
+                </section>
+                <section id="bitpad">
+                    <section id="bitpad" style="margin-top: 10px;padding-right: 1.5%;padding-left: 1.5%; "><button
+                            class="btn btn-light" type="button" id="btn_baseB"
+                            style="width: 16.2%;height: 60px;font-size: 24px;border-radius: 0px;margin: 0.2%;background: rgba(126,31,75,0.31);border-width: 0px;">DEC<br>
+                        </button><button class="btn btn-light" type="button" onclick="togBitMode()"
+                            id="btn_wordB">QWORD<br>
+                        </button><button class="btn btn-light" type="button" onclick="togBoard()"
+                            style="width: 16.2%;height: 60px;font-size: 20px;border-radius: 0px;margin: 0.2%;background: rgba(126,31,75,0.31);border-width: 0px;"><i
+                                class="fa fa-keyboard-o" style="font-size: 30px;"></i><br>
+                        </button><button class="btn btn-light" type="button" onclick="setBitBoard()"
+                            style="width: 16.2%;height: 60px;font-size: 30px;border-radius: 0px;margin: 0.2%;background: rgba(126,31,75,0.31);border-width: 0px;">S
+                            <br>
+                        </button><button class="btn btn-light" type="button" onclick="clearDisp()"
+                            style="width: 16.2%;height: 60px;font-size: 30px;border-radius: 0px;margin: 0.2%;background: rgba(126,31,75,0.48);border-width: 0px;">C<br>
+                        </button><button class="btn btn-light" type="button" id="btn_eraseB"
+                            style="width: 16.2%;height: 60px;font-size: 30px;border-radius: 0px;margin: 0.2%;background: rgba(126,31,75,0.48);border-width: 0px;">⌫<br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48);"  style="background: rgba(126,31,75,0.48);" type="button" id="bit63"
+                            onclick="pressbit(63)" ><strong>1</strong><br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48);"  type="button" id="bit62"
+                            onclick="pressbit(62)"><strong>1</strong><br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48);"  type="button" id="bit61"
+                            onclick="pressbit(61)"><strong>1</strong><br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48); margin-right: 1%;"  type="button" id="bit60"
+                            onclick="pressbit(60)" ><strong>1<span
+                                    style="font-size: 10px;">60</span></strong><br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48);"  type="button" id="bit59"
+                            onclick="pressbit(59)"><strong>1</strong><br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48);"  type="button" id="bit58"
+                            onclick="pressbit(58)"><strong>1</strong><br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48);"  type="button" id="bit57"
+                            onclick="pressbit(57)"><strong>1</strong><br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48);margin-right: 1%;"  type="button" id="bit56"
+                            onclick="pressbit(56)" style="margin-right: 1%;"><strong>1<span
+                                    style="font-size: 10px;">56</span></strong><br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48);"  type="button" id="bit55"
+                            onclick="pressbit(55)"><strong>1</strong><br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48);"  type="button" id="bit54"
+                            onclick="pressbit(54)"><strong>1</strong><br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48);"  type="button" id="bit53"
+                            onclick="pressbit(53)"><strong>1</strong><br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48);margin-right: 1%;"  type="button" id="bit52"
+                            onclick="pressbit(52)" style="margin-right: 1%;"><strong>1<span
+                                    style="font-size: 10px;">52</span></strong><br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48);"  type="button" id="bit51"
+                            onclick="pressbit(51)"><strong>1</strong><br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48);"  type="button" id="bit50"
+                            onclick="pressbit(50)"><strong>1</strong><br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48);"  type="button" id="bit49"
+                            onclick="pressbit(49)"><strong>1</strong><br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48);margin-right: 1%;"  type="button" id="bit48"
+                            onclick="pressbit(48)"><strong>1<span style="font-size: 10px;">48</span></strong><br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48);"  type="button" id="bit47"
+                            onclick="pressbit(47)"><strong>1</strong><br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48);"  type="button" id="bit46"
+                            onclick="pressbit(46)"><strong>1</strong><br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48);"  type="button" id="bit45"
+                            onclick="pressbit(45)"><strong>1</strong><br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48);margin-right: 1%;"  type="button" id="bit44"
+                            onclick="pressbit(44)" style="margin-right: 1%;"><strong>1<span
+                                    style="font-size: 10px;">44</span></strong><br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48);"  type="button" id="bit43"
+                            onclick="pressbit(43)"><strong>1</strong><br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48);"  type="button" id="bit42"
+                            onclick="pressbit(42)"><strong>1</strong><br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48);"  type="button" id="bit41"
+                            onclick="pressbit(41)"><strong>1</strong><br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48);margin-right: 1%;"  type="button" id="bit40"
+                            onclick="pressbit(40)" style="margin-right: 1%;"><strong>1<span
+                                    style="font-size: 10px;">40</span></strong><br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48);"  type="button" id="bit39"
+                            onclick="pressbit(39)"><strong>1</strong><br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48);"  type="button" id="bit38"
+                            onclick="pressbit(38)"><strong>1</strong><br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48);"  type="button" id="bit37"
+                            onclick="pressbit(37)"><strong>1</strong><br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48);margin-right: 1%;"  type="button" id="bit36"
+                            onclick="pressbit(36)" style="margin-right: 1%;"><strong>1<span
+                                    style="font-size: 10px;">36</span></strong><br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48);"  type="button" id="bit35"
+                            onclick="pressbit(35)"><strong>1</strong><br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48);"  type="button" id="bit34"
+                            onclick="pressbit(34)"><strong>1</strong><br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48);"  type="button" id="bit33"
+                            onclick="pressbit(33)"><strong>1</strong><br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48);margin-right: 1%;"  type="button" id="bit32"
+                            onclick="pressbit(32)"><strong>1<span style="font-size: 10px;">32</span></strong><br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48);"  type="button" id="bit31"
+                            onclick="pressbit(31)"><strong>1</strong><br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48);"  type="button" id="bit30"
+                            onclick="pressbit(30)"><strong>1</strong><br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48);"  type="button" id="bit29"
+                            onclick="pressbit(29)"><strong>1</strong><br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48);margin-right: 1%;"  type="button" id="bit28"
+                            onclick="pressbit(28)" style="margin-right: 1%;"><strong>1<span
+                                    style="font-size: 10px;">28</span></strong><br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48);"  type="button" id="bit27"
+                            onclick="pressbit(27)"><strong>1</strong><br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48);"  type="button" id="bit26"
+                            onclick="pressbit(26)"><strong>1</strong><br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48);"  type="button" id="bit25"
+                            onclick="pressbit(25)"><strong>1</strong><br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48);margin-right: 1%;"  type="button" id="bit24"
+                            onclick="pressbit(24)" style="margin-right: 1%;"><strong>1<span
+                                    style="font-size: 10px;">24</span></strong><br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48);"  type="button" id="bit23"
+                            onclick="pressbit(23)"><strong>1</strong><br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48);"  type="button" id="bit22"
+                            onclick="pressbit(22)"><strong>1</strong><br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48);"  type="button" id="bit21"
+                            onclick="pressbit(21)"><strong>1</strong><br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48);margin-right: 1%;"  type="button" id="bit20"
+                            onclick="pressbit(20)" style="margin-right: 1%;"><strong>1<span
+                                    style="font-size: 10px;">20</span></strong><br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48);"  type="button" id="bit19"
+                            onclick="pressbit(19)"><strong>1</strong><br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48);"  type="button" id="bit18"
+                            onclick="pressbit(18)"><strong>1</strong><br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48);"  type="button" id="bit17"
+                            onclick="pressbit(17)"><strong>1</strong><br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48);margin-right: 1%;"  type="button" id="bit16"
+                            onclick="pressbit(16)"><strong>1<span style="font-size: 10px;">16</span></strong><br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48);"  type="button" id="bit15"
+                            onclick="pressbit(15)"><strong>1</strong><br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48);"  type="button" id="bit14"
+                            onclick="pressbit(14)"><strong>1</strong><br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48);"  type="button" id="bit13"
+                            onclick="pressbit(13)"><strong>1</strong><br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48);margin-right: 1%;"  type="button" id="bit12"
+                            onclick="pressbit(12)" style="margin-right: 1%;"><strong>1<span
+                                    style="font-size: 10px;">12</span></strong><br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48);"  type="button" id="bit11"
+                            onclick="pressbit(11)"><strong>1</strong><br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48);"  type="button" id="bit10"
+                            onclick="pressbit(10)"><strong>1</strong><br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48);"  type="button" id="bit9"
+                            onclick="pressbit(9)"><strong>1</strong><br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48);margin-right: 1%;"  type="button" id="bit8" onclick="pressbit(8)"
+                            style="margin-right: 1%;"><strong>1<span style="font-size: 10px;">08</span></strong><br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48);"  type="button" id="bit7"
+                            onclick="pressbit(7)"><strong>1</strong><br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48);"  type="button" id="bit6"
+                            onclick="pressbit(6)"><strong>1</strong><br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48);"  type="button" id="bit5"
+                            onclick="pressbit(5)"><strong>1</strong><br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48);margin-right: 1%;"  type="button" id="bit4" onclick="pressbit(4)"
+                            style="margin-right: 1%;"><strong>1<span style="font-size: 10px;">04</span></strong><br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48);"  type="button" id="bit3"
+                            onclick="pressbit(3)"><strong>1</strong><br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48);"  type="button" id="bit2"
+                            onclick="pressbit(2)"><strong>1</strong><br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48);"  type="button" id="bit1"
+                            onclick="pressbit(1)"><strong>1&nbsp;</strong><br>
+                        </button><button class="btn btn-light bitButton" style="background: rgba(126,31,75,0.48);margin-right: 1%;"  type="button" id="bit0"
+                            onclick="pressbit(0)"><strong>1<span style="font-size: 10px;">0</span></strong><br>
+                    </section>
+                    <section></section>
+                </section>
+            </section>
+        </section>
+    </section>
+    <section id="abhi"
+        style="margin-top: 5%;text-align: center;background: rgba(255,255,255,0);padding-bottom: -14px;padding-top: 0px;height: 70.6px;">
+        <a href="http://srivastava-abhishek.in/" style="text-decoration: none;"> 
+        <h1 id="abhishek"
+            style="padding-bottom: 15px;font-size: 28px;padding-top: 15px;color: rgb(255,255,255);font-family: 'Work Sans', sans-serif;margin-top: 0%;background: #ffffff45;">
+            Made With&nbsp;<img src="assets/img/heart.gif" style="width: 35px;padding-bottom: 10px;"> by Abhishek</h1></a>
+    </section>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>
