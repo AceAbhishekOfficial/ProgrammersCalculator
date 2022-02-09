@@ -1,0 +1,100 @@
+.calciBody
+{
+   background: rgba(255,0,214,0.38);
+   margin-top: 5%;
+   padding-right: 10px; 
+   padding-bottom: 10px;
+   padding-left: 10px;
+   box-shadow: 10px 16px 20px 6px rgba(0,0,0,0.61);
+}
+#XOR
+{
+  width: 16.2%;height: 60px;border-radius: 0px;margin: 0.2%;background: rgba(126,31,75,0.48);border-width: 0px;
+}
+#AND
+{
+  width: 16.2%;height: 60px;border-radius: 0px;margin: 0.2%;background: rgba(126,31,75,0.48);border-width: 0px;
+}
+#OR
+{
+  width: 16.2%;height: 60px;border-radius: 0px;margin: 0.2%;background: rgba(126,31,75,0.48);border-width: 0px;
+}
+#fucksec
+{
+    padding-right: 5%;
+    padding-left: 5%;
+}
+#btn_wordB
+{
+width: 16.2%;height: 60px;border-radius: 0px;margin: 0.2%;background: rgba(126,31,75,0.31);border-width: 0px;
+font-size: 10px;
+}
+#btn_word
+{
+width: 16.2%;height: 60px;border-radius: 0px;margin: 0.2%;background: rgba(126,31,75,0.31);border-width: 0px;
+font-size: 10px;
+}
+.btn
+{
+ color:white;
+}
+.bitButton
+{
+  width: 12%;
+  height: 60px;font-size: 23.0px;border-radius: 0px;margin: 0%;background: rgba(126,31,75,0.48);border-width: 0px;margin-top: 5px;
+}
+#setCol
+{
+  -webkit-appearance: none;
+  width:150px;
+  height: 5px;
+  margin-bottom: 10px;
+  background: white;
+
+}
+#setCol::-webkit-slider-thumb 
+{
+  -webkit-appearance: none;
+  appearance: none;
+  width: 30px;
+  height: 30px;
+ 
+  background: rgb(255, 0, 212);
+  cursor: pointer;
+  
+}
+@media (min-width: 576px) 
+{
+    #fucksec 
+    {
+      
+      padding-left: 20%;
+      padding-right: 20%;
+    }
+    #XOR
+    {
+     font-size: 24px;
+    }
+    #AND
+    {
+     font-size: 24px;
+    }
+    #OR
+    {
+     font-size: 24px;
+    }
+    #btn_wordB
+    {
+      font-size: 20px;
+    }
+    #btn_word
+    {
+      font-size: 20px;
+    }
+    .bitButton
+    {
+      width: 6%;
+      font-size: 30px;
+    }
+    
+  }

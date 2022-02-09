@@ -1,0 +1,7 @@
+@font-face {
+	font-family: 'LuloCleanW01-OneBold';
+	src: url(../../assets/fonts/LuloCleanW01-OneBold.woff2) format('woff2'),
+	url(../../assets/fonts/LuloCleanW01-OneBold.woff) format('woff');
+	font-weight: bold;
+	font-style: normal;
+}
