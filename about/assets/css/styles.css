@@ -1,0 +1,12 @@
+@media (min-width: 992px) {
+  #tempSec {
+    background: red;
+  }
+}
+
+#QR {
+  position: absolute;
+  top: 10%;
+  left: 40%;
+}
+
